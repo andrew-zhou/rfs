@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  reaping_frequency: 10
+  timeout: 5000
+  username: <%= ENV["RFS_PG_USERNAME"] %>
+  password: <%= ENV["RFS_PG_PASSWORD"] %>
+
+development:
+  <<: *default
+  database: rfs_development
+
+production:
+  <<: *default
+  database: rfs_production
